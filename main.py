@@ -6,7 +6,7 @@ rgb=(21, 28, 96 )
 players_colors=(48, 96, 21 )
 ball_color=(21, 96, 91 )
 line_color=(0,0,0)
-mixer.music.load("fondo.mp3")
+mixer.music.load("ss.wav")
 mixer.music.play(-1)
 mixer.music.set_volume(0.5)
 screen_width=500
@@ -130,10 +130,16 @@ while running:
     pygame.draw.aaline(screen,line_color,(screen_width/2,0),(screen_width/2,screen_height))
     ball=pygame.draw.circle(screen,ball_color,(ball_x,ball_y),ball_radius)
     
-    if ball.colliderect(player_1)or ball.colliderect(player_2):
-        ball_speed_x *= -1
+    if ball.colliderect(player_1):
+        ball_speed_x *= -1.01
+        ball_x+=1
         ball_sonido=mixer.Sound("choque.wav")
         ball_sonido.play()
+    if ball.colliderect(player_2):
+        ball_sonido=mixer.Sound("choque.wav")
+        ball_speed_x *= -1.01 
+        ball_x-=1
+        
     if player_1_score ==50:
         ball_y=2000
         ball_speed_x=0
