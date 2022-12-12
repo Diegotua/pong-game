@@ -45,7 +45,7 @@ def show_score_2(x,y):
     score2=score_font.render("player two: " +str(player_2_score),True,(21, 96, 23) )
     screen.blit(score2,(x,y))
 
-icon=pygame.image.load("ping-pong.png")
+icon=pygame.image.load("pongo.png")
 pygame.display.set_icon(icon)
 
 running= True
